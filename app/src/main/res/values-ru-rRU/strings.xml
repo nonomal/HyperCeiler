@@ -317,7 +317,7 @@
     <string name="system_ui_statusbar_network_speed_style_4">Двурядное отображение скорости сети</string>
     <string name="system_ui_statusbar_clock_style_1">Часы в одну строку в строке состояния</string>
     <string name="system_ui_statusbar_clock_style_2">Часы в строке состояния Мини-часы в панели уведомлений</string>
-    <string name="system_ui_statusbar_clock_style_3">Мини-часы панели уведомлений Часы в строке состояния</string>
+    <string name="system_ui_statusbar_clock_style_3">Отображение в две строки\n\nМини-часы в панели уведомлений сверху\nЧасы в строке состояния снизу</string>
     <string name="mediaeditor_mickey">Микки Маус</string>
     <string name="mediaeditor_strawberry_bear">Клубничный мишка</string>
     <string name="tiles_gms">Сервис Google Play</string>
@@ -432,7 +432,7 @@
     <string name="system_framework_allow_manage_all_notifications">Разрешить управление всеми уведомлениями</string>
     <string name="system_framework_quick_screenshot">Быстрый скриншот</string>
     <string name="system_framework_quick_screenshot_desc">Отключить задержку скриншота</string>
-    <string name="system_framework_disable_link_turbo_toast">Скрыть всплывающее уведомление LinkTurbo</string>
+    <string name="system_framework_disable_link_turbo_toast">Скрыть подсказку о мобильной сети, используемой для ускорения.</string>
     <string name="system_framework_allow_third_theme">Разрешает использовать сторонние темы</string>
     <string name="system_framework_allow_disable_protected_package">Позволяет отключать защищенные приложения</string>
     <string name="system_framework_disable_miui_watermark">Отключить глобальный водяной знак</string>
@@ -590,7 +590,7 @@
     <string name="system_ui_lock_screen_force_system_fonts">Заставить часы использовать системные шрифты</string>
     <string name="system_ui_lock_screen_double_lock">Блокировка экрана двойным нажатием</string>
     <string name="system_ui_lock_screen_double_lock_desc">Дважды коснитесь пустого места, чтобы заблокировать экран</string>
-    <string name="system_ui_lock_screen_not_disturb_mode_title">Скрыть уведомление о режиме дзен</string>
+    <string name="system_ui_lock_screen_not_disturb_mode_title">Скрыть уведомление о режиме \"Не беспокоить\"</string>
     <string name="system_ui_lock_screen_unlock_tip_title">Скрыть подсказку о разблокировке в нижней части экрана блокировки</string>
     <string name="system_ui_lock_screen_hide_status_bar">Удаляет строку состояния с экрана блокировки</string>
     <string name="system_ui_lock_screen_block_editor_title">Отключить долгое нажатие, чтобы получить доступ к экрану блокировки</string>
@@ -795,7 +795,7 @@
     <string name="system_ui_status_bar_strong_toast_layout">Отображение</string>
     <string name="system_ui_status_bar_strong_toast_text">Информация</string>
     <string name="system_ui_status_bar_strong_toast_test">Отладка</string>
-    <string name="system_ui_status_bar_strong_toast_hide">Скрыть умнон всплывающее уведомление</string>
+    <string name="system_ui_status_bar_strong_toast_hide">Скрыть умное всплывающее уведомление</string>
     <string name="system_ui_status_bar_strong_toast_test_short_text">Вывод короткого текста</string>
     <string name="system_ui_status_bar_strong_toast_test_long_text">Вывод длинного текста</string>
     <string name="system_ui_status_bar_strong_toast_test_short_text_0">Текст</string>

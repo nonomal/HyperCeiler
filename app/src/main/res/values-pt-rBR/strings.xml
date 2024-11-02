@@ -18,6 +18,8 @@
   ~ Copyright (C) 2023-2024 HyperCeiler Contributions
   -->
 <resources>
+    <string name="version_update">Nova versão encontrada</string>
+    <string name="about_copy_right">© 2023-2024 Sevtinge &amp; Contribuidores do HyperCeiler.</string>
     <!--Introduction to Xposed Modules-->
     <string name="xposed_description">Torne o HyperOS/MIUI ótimo novamente!</string>
     <string name="new_permission_wifi_state_desc">adicionar e excluir arquivos no armazenamento interno do dispositivo</string>
@@ -126,7 +128,7 @@
     <string name="restart_app_desc">Você tem certeza que deseja reiniciar agora %1$s?</string>
     <string name="tip">Dica</string>
     <string name="root">Alguns recursos não estão disponíveis sem permissão Root/Su</string>
-    <string name="hook_failed">O módulo ainda não está ativado.\nPor favor, verifique se o LSPosed está ativado. Nesse caso, por favor, reinicie ou re-otimize o módulo.</string>
+    <string name="hook_failed">O módulo ainda não está ativado. Por favor, verifique se o LSPosed está ativado. Nesse caso, por favor, reinicie ou re-otimize o módulo.</string>
     <string name="kill_failed">Falha ao finalizar o processo. Por favor, verifique se o HyperCeiler recebeu permissões Root/Su.</string>
     <string name="start_failed">Falha ao iniciar a atividade. Por favor, verifique se o HyperCeiler recebeu permissões Root/Su.</string>
     <string name="pid_failed">O app de destino não está em execução e não precisa ser reiniciado.</string>
@@ -402,6 +404,7 @@
     <string name="system_framework_clean_process_text_apps_desc">O app selecionado não aparecerá no menu de contexto de texto</string>
     <string name="system_framework_auto_start_menu">Exceções da cadeia de restrições</string>
     <string name="system_framework_auto_start_apps">Apps selecionados</string>
+    <string name="system_framework_auto_start_apps_desc">O app selecionado não será restringido pela cadeia de restrições e poderá iniciar automaticamente</string>
     <string name="system_other_flag_secure">Permitir captura de tela</string>
     <string name="system_other_flag_secure_desc">Permite capturas de tela e gravações de tela em qualquer app</string>
     <string name="system_other_delete_on_post_notification">Remover notificação da tela superior</string>
@@ -594,7 +597,7 @@
     <string name="system_ui_lock_screen_allow_third_face">Ativar sistema para verificar o reconhecimento por terceiros</string>
     <string name="system_ui_lock_screen_allow_third_face_desc">Permite que o reconhecimento facial e de impressão digital seja usado normalmente na Tela de bloqueio exibida por apps de terceiros</string>
     <string name="system_ui_lock_screen_disable_unlock_by_ble_toast">Desativar dica de desbloqueio via Bluetooth</string>
-    <string name="system_ui_lock_screen_linkage_anim">Substituir animação do plano de fundo da tela vinculada</string>
+    <string name="system_ui_lock_screen_linkage_anim">Substituir transição da Tela de bloqueio</string>
     <string name="system_ui_lock_screen_linkage_anim_on">Velocidade da animação de tela ligada</string>
     <string name="system_ui_lock_screen_linkage_anim_off">Velocidade da animação de tela desligada</string>
     <string name="system_ui_navigation_title">Navegação</string>
@@ -891,6 +894,7 @@
     <string name="system_ui_control_center_unlock_blur_supported">Remover restrição do blur de notificação</string>
     <string name="system_ui_control_center_unlock_blur_supported_desc">Não há restrição ao blur de fundo para as Texturas avançadas, apenas para remoção de temas de terceiros.</string>
     <string name="system_ui_control_center_remove_notif_num_limit">Remover limite de notificações</string>
+    <string name="system_ui_control_center_remove_notif_num_limit_desc">Permite exibir 10, 17 ou mais notificações.</string>
     <string name="system_ui_other_title">Outros</string>
     <string name="system_ui_disable_volume">Barra de volume nativa</string>
     <string name="system_ui_disable_power">Menu de energia nativo</string>
@@ -984,6 +988,7 @@
     <string name="system_settings_allow_never_lock_screen">Permitir nunca bloquear a tela</string>
     <string name="system_settings_anti_ques">Desativar verificação de palavras sensíveis no nome do dispositivo</string>
     <string name="system_settings_anti_ques_desc">Você não pode usar esse recurso em violação às leis locais ou nacionais</string>
+    <string name="system_settings_more_vpn_types">Mais tipos de VPN</string>
     <!--Themes-->
     <string name="theme_manager">Temas</string>
     <string name="theme_manager_version_code_modify">Ajustar versão de detecção</string>
@@ -1444,6 +1449,7 @@
     <string name="security_center_flash_light">Controle do brilho da lanterna</string>
     <string name="security_center_flash_light_more">Permite que você controle o brilho da lanterna arrastando o controle deslizante de brilho</string>
     <string name="security_center_get_number">Gerenciar app para obter o número de telefone e faça login com um clique</string>
+    <string name="security_center_simplify_home">Simplificar a tela inicial do Segurança</string>
     <string name="security_center_simplify_home_desc">Remove o cartão de recomendação de funções</string>
     <string name="security_center_applock_pin_scramble">Bloqueio de apps com PIN embaralhado</string>
     <string name="security_center_power_saver">Remover restrições ao espelhar tela</string>
@@ -1525,7 +1531,9 @@
     <string name="security_center_game_speed">Iniciar jogo rapidamente</string>
     <string name="security_center_game_speed_desc">Ao iniciar o jogo, ele passa a animação da tela de abertura em velocidade 3x, o que só é suportado por alguns jogos.</string>
     <string name="security_center_bypass_simlock_miaccount_auth">Ignorar segurança do SIM da Conta Mi</string>
-    <string name="security_center_bypass_simlock_miaccount_auth_desc">Você pode usar esta função mesmo sem fazer login em sua Conta Mi.</string>
+    <string name="security_center_bypass_simlock_miaccount_auth_desc">Você pode usar este recurso mesmo sem fazer login em sua Conta Mi</string>
+    <string name="security_center_remove_simlock_success_dialog">Remover aviso de verificação de segurança do SIM</string>
+    <string name="security_center_remove_simlock_success_dialog_desc">Remove a caixa de diálogo após ligar o dispositivo para indicar que a verificação de segurança do SIM foi concluída com sucesso</string>
     <string name="security_center_aosp_app_info_label">Informações do app AOSP</string>
     <string name="security_center_aosp_app_info">Adicionar entrada de informações do app AOSP</string>
     <string name="security_center_aosp_app_manager_label">Gerenciar apps AOSP</string>
@@ -1762,10 +1770,10 @@
     <string name="help_support_version_desc_4">A versão atual do sistema não está (totalmente) adaptada.</string>
     <string name="headtip_warn_not_offical_rom">A ROM que você está usando pode não ser oficial da Xiaomi, e alguns recursos podem não funcionar. Por favor, entre em contato com o seu fornecedor para obter mais detalhes.</string>
     <string name="headtip_warn_unsupport_sysver">O dispositivo atual está executando uma versão do sistema que não está (totalmente) adaptada, o que pode resultar em anomalias na funcionalidade do HyperCeiler.</string>
-    <string name="headtip_warn_sign_verification_failed">A verificação da assinatura falhou, e a versão atual que você está usando pode não ser a oficial de HyperCeiler, podendo conter código malicioso.</string>
+    <string name="headtip_warn_sign_verification_failed">A verificação da assinatura falhou, e a versão atual que você está usando pode não ser a oficial do HyperCeiler, podendo conter código malicioso.</string>
     <string name="headtip_tip_long_press_to_copy">Você pode selecionar o texto após pressionar longamente ou tocar duas vezes, ou copiá-lo e devolvê-lo ao desenvolvedor.</string>
     <string name="headtip_tip_fuck_coolapk">Hoje na história: Sevtinge fez um discurso importante em 14 de julho de 2022.</string>
-    <string name="headtip_notice_dead_logger_errcode">O serviço de log do dispositivo atual está anormal e os recursos do HyperCeiler serão limitados.\nPor favor, restaure o serviço de log para que ele possa funcionar normalmente.\nCódigo de erro: %1$s</string>
+    <string name="headtip_notice_dead_logger_errcode">O serviço de log do dispositivo atual está anormal e os recursos do HyperCeiler serão limitados. Por favor, restaure o serviço de log para que ele possa funcionar normalmente.\nCódigo de erro: %1$s</string>
     <string name="headtip_notice_dead_logger">O serviço de log do dispositivo atual está anormal e os recursos do HyperCeiler serão limitados. Por favor, restaure o serviço de log para que ele possa funcionar normalmente.</string>
     <string name="warn">Atenção!</string>
     <string name="safe_mode_desc">%1$s entrou no Modo seguro devido a várias falhas e os recursos do HyperCeiler foi temporariamente desativado.</string>
@@ -1806,4 +1814,7 @@
     <string name="bypass_udk_word_legal_check_description">Permite a gravação de palavras do Acorde com voz quando estiver offline</string>
     <string name="voicetrigger_accuracy_percent_caption">Definir precisão da detecção do Acorde com voz</string>
     <string name="voicetrigger_accuracy_percent_description">Valores maiores são mais difíceis de detectar. O valor padrão é 70%, para a palavra-chave XATX é 0%. Após a configuração, você precisa reiniciar o app de destino e registrar novamente sua palavra de ativação.</string>
+    <string name="about_device_info_device">Dispositivo</string>
+    <string name="about_device_info_android">Versão do Android</string>
+    <string name="about_device_info_os">Versão do OS</string>
 </resources>
