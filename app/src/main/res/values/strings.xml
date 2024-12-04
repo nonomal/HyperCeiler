@@ -206,8 +206,8 @@
     <string name="preference_dialog_color_picker_custom">Custom color</string>
     <string name="preference_dialog_color_picker_transparency">Transparency</string>
     <string name="preference_dialog_color_picker_select">Confirm selection</string>
-    <string name="abc_action_bar_home_description">Back to the homepage</string>
-    <string name="abc_action_bar_up_description">Back to the previous level</string>
+    <string name="abc_action_bar_home_description">Navigate home</string>
+    <string name="abc_action_bar_up_description">Navigate up</string>
     <string name="actionbar_button_up_description">Back</string>
     <string name="miuix_appcompat_action_mode_select_all">Select all</string>
     <string name="miuix_appcompat_cancel_description">Cancel</string>
@@ -225,6 +225,37 @@
     <string name="color_picker_view_page_text_hue">Hue</string>
     <string name="color_picker_view_page_text_lightness">Lightness</string>
     <string name="color_picker_view_page_text_saturation">Saturation</string>
+    <string name="bottomsheet_action_collapse">Collapse the bottom sheet</string>
+    <string name="bottomsheet_action_expand">Expand the bottom sheet</string>
+    <string name="bottomsheet_action_expand_halfway">Expand halfway</string>
+    <string name="bottomsheet_drag_handle_clicked">Drag handle double-tapped</string>
+    <string name="bottomsheet_drag_handle_content_description">Drag handle</string>
+    <string name="miuix_alphabet_indexer_name">Index bar</string>
+    <string name="miuix_appcompat_action_mode_cancel">Cancel</string>
+    <string name="miuix_appcompat_clearable_edittext_clear_description">Clear</string>
+    <string name="miuix_appcompat_color_picker_alpha_text_transparent">Transparency</string>
+    <string name="miuix_appcompat_color_picker_tab_dynamic">Monet</string>
+    <string name="miuix_appcompat_color_picker_tab_grid">Grid</string>
+    <string name="miuix_appcompat_color_picker_tab_slider">Slider</string>
+    <string name="miuix_appcompat_color_picker_view_page_text_hue">Hue</string>
+    <string name="miuix_appcompat_color_picker_view_page_text_lightness">Lightness</string>
+    <string name="miuix_appcompat_color_picker_view_page_text_saturation">Saturation</string>
+    <string name="miuix_appcompat_edit">Edit</string>
+    <string name="miuix_indexer_collect">Collections</string>
+    <string name="miuix_indexer_selected">Selected %s</string>
+    <string name="miuix_navigator_category_group_collapse">Collapse</string>
+    <string name="miuix_navigator_category_group_expand">Expand</string>
+    <string name="miuix_navigator_content_switch_description">Show sidebar</string>
+    <string name="miuix_navigator_multiple_choice">Select</string>
+    <string name="miuix_navigator_navigator_switch_description">Hide sidebar</string>
+    <string name="miuix_sbl_tracking_progress_labe_pull_to_refresh">Pull down to refresh</string>
+    <string name="miuix_sbl_tracking_progress_labe_refreshed">Refreshed successfully</string>
+    <string name="miuix_sbl_tracking_progress_labe_refreshing">Refreshing…</string>
+    <string name="miuix_sbl_tracking_progress_labe_release_to_refresh">Release to refresh</string>
+    <string name="miuix_sbl_tracking_progress_labe_up_nodata">That\'s all for now</string>
+    <string name="miuix_sbl_tracking_progress_labe_up_none">That\'s all for now</string>
+    <string name="miuix_sbl_tracking_progress_labe_up_refresh">Just a sec…</string>
+    <string name="miuix_sbl_tracking_progress_labe_up_refresh_fail">Couldn\'t load items</string>
     <!--String reuse-->
     <string name="top_margin">Top margin</string>
     <string name="bottom_margin">Bottom margin</string>
@@ -382,6 +413,7 @@
     <string name="mediaeditor_mickey">Mickey Mouse</string>
     <string name="mediaeditor_strawberry_bear">Strawberry Bear</string>
     <string name="tiles_gms">Google Play Service</string>
+    <string name="tiles_snow_leopard_mode">S-Leo mode</string>
     <string name="tiles_taplus">Taplus</string>
     <string name="tiles_5g">5G network</string>
     <string name="dashboard_5g">Use 5G</string>
@@ -599,6 +631,8 @@
     <!--Community-->
     <string name="community">Xiaomi Community</string>
     <string name="community_device_modify">Model guise</string>
+    <string name="community_fuck_detection">Fuck detection</string>
+    <string name="community_fuck_detection_desc">It is forbidden to detect HyperCeiler and upload it while giving feedback. Please make sure that the problem is not caused by yourself, but a real system problem, and then give feedback to avoid unnecessary trouble.</string>
     <!--File Manager-->
     <string name="fileexplorer">File Manager</string>
     <string name="file_explorer_can_selectable">File Manager can be selectable</string>
@@ -730,7 +764,7 @@
     <string name="system_ui_status_bar_icon_wifi_slave">Auxiliary Wi-Fi</string>
     <string name="system_ui_status_bar_icon_wifi_standard">Wi-Fi standard</string>
     <string name="system_ui_status_bar_icon_hotspot">Hotspot Wi-Fi</string>
-    <string name="system_ui_status_bar_icon_wifi_network_indicator">Network activity indicator</string>
+    <string name="system_ui_status_bar_icon_wifi_network_indicator">Wi-Fi activity indicator</string>
     <string name="system_ui_status_bar_icon_bluetooth">Bluetooth</string>
     <string name="system_ui_status_bar_icon_bluetooth_battery">Bluetooth battery</string>
     <string name="system_ui_status_bar_icon_new_hd">New HD icon</string>
@@ -873,7 +907,10 @@
     <string name="system_ui_statusbar_music_cusiom_title">Display settings</string>
     <string name="system_ui_statusbar_music_hide_clock_title">Hide status bar clock</string>
     <string name="system_ui_statusbar_music_hide_clock_desc">Hide the status bar clock when showing focused lyrics, and adjust the animation of the dropdown Notification shade.</string>
+    <string name="system_ui_statusbar_music_click_clock_title">Click to show clock</string>
+    <string name="system_ui_statusbar_music_click_clock_desc">Click the focus lyrics event to change the status bar clock to display, otherwise hide it. The switch needs to restart the corresponding music software to take effect.</string>
     <string name="system_ui_statusbar_music_speed_title">Lyrics scroll rate</string>
+    <string name="system_ui_statusbar_music_scroll_delay_title">Lyrics scroll delay</string>
     <string name="system_ui_statusbar_music_width_title">Add whitespace at the end of lyrics</string>
     <string name="system_ui_statusbar_music_width_desc">Make scrolling lyrics as complete as possible</string>
     <string name="system_ui_controlcenter_title">Control center</string>
@@ -885,10 +922,12 @@
     <string name="quick_settings_state_change_message_on_my">%1$s is on</string>
     <string name="quick_settings_state_change_message_off_my">%1$s is off</string>
     <string name="system_control_center_5g_tile">5G network switch</string>
+    <string name="system_ui_control_center_snow_leopard_mode">S-Leo mode</string>
+    <string name="system_ui_control_center_snow_leopard_mode_desc">Disables all audio output. Experimental features that may contain erratic content</string>
     <string name="system_control_center_reduce_bright_colors_tile">Extra dim</string>
     <string name="system_control_center_sunshine_mode">Sunlight mode</string>
-    <string name="system_control_center_sunshine_mode_brightness">Sunshine mode brightness</string>
-    <string name="system_control_center_sunshine_mode_brightness_desc">Too high brightness may cause screen aging, screen burn-in and other irreversible consequences. It is recommended to choose the brightness and use it appropriately.</string>
+    <string name="system_control_center_sunshine_mode_brightness">Sunlight mode brightness</string>
+    <string name="system_control_center_sunshine_mode_brightness_desc">A very high brightness can cause screen aging, screen burn-in, and other irreversible consequences. It\'s recommended to choose the brightness and use it appropriately.</string>
     <string name="system_ui_control_auto_close">Close after tapping</string>
     <string name="system_ui_control_center_qs_bg_color">Background color</string>
     <string name="system_ui_control_center_qs_color">Icon color</string>
@@ -1533,6 +1572,7 @@
     <!--System Service Plugin-->
     <string name="securityadd">System service plugin</string>
     <string name="securityadd_disable_gb_ads">Disable Game Center ads</string>
+    <string name="securityadd_disable_gb_ads_desc">This may cause other functions to be abnormal</string>
     <!--Security/Tablet security center-->
     <string name="security_center">Security</string>
     <string name="security_center_pad">Security</string>
@@ -1866,10 +1906,11 @@
     <string name="help_cant_see_apps_guide">Can\'t find the app features?</string>
     <string name="set_homepage_entrance_about">Note: Modifying this setting only hides the visibility of the feature on the homepage, and features that have been turned on won\'t be turned off!\nHiding the feature on the homepage will take effect immediately, and the app will need to be restarted to reappear.</string>
     <string name="help_cant_see_apps_title">Can\'t find the app features on the homepage?</string>
-    <string name="help_cant_see_apps_desc">To maintain the simplicity and usability of the homepage, we have hidden access to the following types of app features:\n\n • Those currently disabled or hidden\n • Those not found in your device\n • Those incompatible with the current version of the system or the app\n\nPlease troubleshoot based on the above information, restart HyperCeiler, and try again. If you still can\'t find the app features, it may be a bug. Please provide timely and effective feedback to us.\n\nCurrently hidden app features:\n\n</string>
+    <string name="help_cant_see_apps_desc">To maintain the simplicity and usability of the homepage, we have hidden access to the following types of app features:\n\n • Those currently disabled or hidden\n • Those not found in your device\n • Those incompatible with the current version of the system or the app\n • Not selected as scoped\n\nPlease troubleshoot based on the above information, restart HyperCeiler, and try again. If you still can\'t find the app features, it may be a bug. Please provide timely and effective feedback to us.\n\nCurrently hidden app features:</string>
     <string name="help_cant_see_apps_uninstall">Uninstalled apps:\n</string>
     <string name="help_cant_see_apps_disable">Disabled or hidden apps:\n</string>
-    <string name="help_cant_see_apps_desc_no_hidden">To maintain the simplicity and usability of the homepage, we have hidden access to the following types of app features:\n\n • Those currently disabled or hidden\n • Those not found in your device\n • Those incompatible with the current version of the system or the app\n\nPlease troubleshoot based on the above information, restart HyperCeiler, and try again. If you still can\'t find the app features, it may be a bug. Please provide timely and effective feedback to us.\n\nThere are currently no hidden features!</string>
+    <string name="help_cant_see_apps_scope">Not selected as scoped:\n</string>
+    <string name="help_cant_see_apps_desc_no_hidden">To maintain the simplicity and usability of the homepage, we have hidden access to the following types of app features:\n\n • Those currently disabled or hidden\n • Those not found in your device\n • Those incompatible with the current version of the system or the app\n • Not selected as scoped\n\nPlease troubleshoot based on the above information, restart HyperCeiler, and try again. If you still can\'t find the app features, it may be a bug. Please provide timely and effective feedback to us.\n\nThere are currently no hidden features!</string>
     <string name="help_cant_see_apps_switch">Hide this help in homepage</string>
     <string name="help_cant_see_apps_switch_desc">You can still find this page in About > Help. Reboot app to apply.</string>
     <string name="help_support_version_title">Current app version support system version list</string>
@@ -1880,6 +1921,7 @@
     <string name="headtip_warn_not_offical_rom">The source of the ROM you are using may not be an official Xiaomi ROM, and some features may not work. Please contact your supplier for more details.</string>
     <string name="headtip_warn_unsupport_sysver">The current device is running on a system version that isn\'t (fully) adapted, which may result in anomalies in the HyperCeiler functionality.</string>
     <string name="headtip_warn_sign_verification_failed">The signature verification failed, and the current version you are using may not be from the official version of HyperCeiler, and may contain malicious code.</string>
+    <string name="headtip_tip_auto_safe_mode">Auto safe mode can unhook some apps in time when they crash multiple times to ensure safety. This feature requires the hook scope \"System Framework\" to run, and we strongly recommend that you check the scope \"System Framework\" to activate Auto safe mode.</string>
     <string name="headtip_tip_long_press_to_copy">You can select text after long or double press, or copy it and send it back to the developer.</string>
     <string name="headtip_tip_fuck_coolapk">Today in history: Sevtinge delivered an important speech on July 14, 2022.</string>
     <string name="headtip_notice_dead_logger_errcode">The current device log service is abnormal and HyperCeiler features will be limited. Please restore the log service so that it can run normally.\nError code: %1$s</string>
@@ -1928,6 +1970,9 @@
 
     <string name="notes">Notes</string>
     <string name="notes_disable_ai_watermark">Disable AI watermark</string>
+
+    <string name="sound_recorder">Sound Recorder</string>
+    <string name="sound_recorder_disable_ai_watermark">Disable AI watermark</string>
 
     <string name="lpa">LPA</string>
     <string name="lpa_custom_imei">Custom IMEI</string>

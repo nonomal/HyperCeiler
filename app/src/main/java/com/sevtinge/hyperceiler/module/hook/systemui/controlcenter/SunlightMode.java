@@ -18,15 +18,12 @@
  */
 package com.sevtinge.hyperceiler.module.hook.systemui.controlcenter;
 
-import static com.sevtinge.hyperceiler.utils.devicesdk.SystemSDKKt.isMoreAndroidVersion;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.ContentObserver;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
 import android.util.ArrayMap;
@@ -87,12 +84,19 @@ public class SunlightMode extends TileUtils {
     public void setPath() {
         String fileOne = "/sys/class/mi_display/disp-DSI-0/brightness_clone";
         String fileTwo = "/sys/class/backlight/panel0-backlight/brightness";
-        File file = new File(fileOne);
-        if (file.exists()) {
-            path = fileOne;
+        if (mPrefsMap.getStringAsInt("system_control_center_sunshine_new_mode_write", 1) == 1) {
+            File file = new File(fileOne);
+            if (file.exists()) {
+                path = fileOne;
+            } else {
+                File file1 = new File(fileTwo);
+                if (file1.exists()) {
+                    path = fileTwo;
+                }
+            }
         } else {
-            File file1 = new File(fileTwo);
-            if (file1.exists()) {
+            File file2 = new File(fileTwo);
+            if (file2.exists()) {
                 path = fileTwo;
             }
         }
@@ -123,7 +127,7 @@ public class SunlightMode extends TileUtils {
 
     @Override
     public String setTileProvider() {
-        return isMoreAndroidVersion(Build.VERSION_CODES.TIRAMISU) ? "powerSaverTileProvider" : "mPowerSaverTileProvider";
+        return "powerSaverTileProvider";
     }
 
     @Override
@@ -365,10 +369,7 @@ public class SunlightMode extends TileUtils {
     }
 
     public static String readAndWrit(String writ, boolean need) {
-        String line;
-        BufferedReader reader = null;
-        BufferedWriter writer = null;
-        StringBuilder builder = null;
+        StringBuilder builder = new StringBuilder();
         /*try {
             // 800毫秒获得丝滑转场效果，太好笑了，记录一下
             Thread.sleep(need ? 800 : 400);
@@ -377,36 +378,22 @@ public class SunlightMode extends TileUtils {
         }*/
         if (writ != null) {
             try {
-                writer = new BufferedWriter(new FileWriter(path, false));
-                writer.write(writ);
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, false))) {
+                    writer.write(writ);
+                } // try-with-resources 会自动关闭 writer
             } catch (IOException e) {
                 AndroidLogUtils.logE("SunlightMode", "error to writer: " + path + " ", e);
-            } finally {
-                try {
-                    if (writer != null) {
-                        writer.close();
-                    }
-                } catch (IOException e) {
-                    AndroidLogUtils.logE("SunlightMode", "close writer error: ", e);
-                }
             }
         }
         try {
-            reader = new BufferedReader(new FileReader(path));
-            builder = new StringBuilder();
-            while ((line = reader.readLine()) != null) {
-                builder.append(line);
-            }
+            try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    builder.append(line);
+                }
+            } // try-with-resources 会自动关闭 reader
         } catch (IOException e) {
             AndroidLogUtils.logE("SunlightMode", "error to read: " + path + " ", e);
-        } finally {
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                AndroidLogUtils.logE("SunlightMode", "close reader error: ", e);
-            }
         }
         if (builder != null) {
             // logE("get string: " + builder);

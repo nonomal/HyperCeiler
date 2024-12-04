@@ -22,12 +22,14 @@ package com.sevtinge.hyperceiler.module.app;
 import com.hchen.database.HookBase;
 import com.sevtinge.hyperceiler.module.base.BaseModule;
 import com.sevtinge.hyperceiler.module.hook.community.DeviceModify;
+import com.sevtinge.hyperceiler.module.hook.community.FuckDetection;
 
-@HookBase(pkg = "com.xiaomi.vipaccount", skip = true, isPad = false, tarSdkVersion = 0)
+@HookBase(targetPackage = "com.xiaomi.vipaccount", isPad = false)
 public class Community extends BaseModule {
 
     @Override
     public void handleLoadPackage() {
         initHook(new DeviceModify(), mPrefsMap.getBoolean("community_device_modify"));
+        initHook(new FuckDetection(), mPrefsMap.getBoolean("community_fuck_detection"));
     }
 }

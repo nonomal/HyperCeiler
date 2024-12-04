@@ -1,5 +1,6 @@
 package com.sevtinge.hyperceiler.ui.fragment.main;
 
+import static com.sevtinge.hyperceiler.prefs.PreferenceHeader.notInSelectedScope;
 import static com.sevtinge.hyperceiler.utils.devicesdk.MiDeviceAppUtilsKt.isPad;
 import static com.sevtinge.hyperceiler.utils.devicesdk.SystemSDKKt.getBaseOs;
 import static com.sevtinge.hyperceiler.utils.devicesdk.SystemSDKKt.getRomAuthor;
@@ -188,6 +189,7 @@ public class HomePageFragment extends DashboardFragment
     Preference mHeadtipNotice;
     Preference mHeadtipBirthday;
     Preference mHeadtipHyperCeiler;
+    Preference mHeadtipTip;
     MainActivityContextHelper mainActivityContextHelper;
     private final String TAG = "MainFragment";
     public static final String ANDROID_NS = "http://schemas.android.com/apk/res/android";
@@ -195,6 +197,7 @@ public class HomePageFragment extends DashboardFragment
     boolean mNoticeTipVisible = false;
     boolean mBirthdayTipVisible = false;
     boolean mHyperCeilerTipVisible = false;
+    boolean mTipTipVisible;
 
     @Override
     public int getPreferenceScreenResId() {
@@ -206,32 +209,22 @@ public class HomePageFragment extends DashboardFragment
         HomepageEntrance.setEntranceStateListen(this);
         Resources resources = getResources();
         ThreadPoolManager.getInstance().submit(() -> {
-            try (XmlResourceParser xml = resources.getXml(R.xml.prefs_set_homepage_entrance)) {
-                try {
-                    int event = xml.getEventType();
-                    while (event != XmlPullParser.END_DOCUMENT) {
-                        if (event == XmlPullParser.START_TAG) {
-                            if (xml.getName().equals("SwitchPreference")) {
-                                String key = xml.getAttributeValue(ANDROID_NS, "key");
-                                if (key != null) {
-                                    String checkKey = key.replace("_state", "");
-                                    boolean state = getSharedPreferences().getBoolean(key, true);
-                                    if (!state) {
-                                        PreferenceHeader preferenceHeader = findPreference(checkKey);
-                                        if (preferenceHeader != null) {
-                                            boolean visible = preferenceHeader.isVisible();
-                                            if (visible) {
-                                                preferenceHeader.setVisible(false);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        event = xml.next();
+            XmlResourceParser xml = null;
+            try {
+                xml = resources.getXml(R.xml.prefs_set_homepage_entrance);
+                int event = xml.getEventType();
+                while (event != XmlPullParser.END_DOCUMENT) {
+                    if (event == XmlPullParser.START_TAG && "SwitchPreference".equals(xml.getName())) {
+                        String key = xml.getAttributeValue(ANDROID_NS, "key");
+                        processSwitchPreference(key);
                     }
-                } catch (XmlPullParserException | IOException e) {
-                    AndroidLogUtils.logE(TAG, "An error occurred when reading the XML:", e);
+                    event = xml.next();
+                }
+            } catch (XmlPullParserException | IOException e) {
+                AndroidLogUtils.logE(TAG, "An error occurred when reading the XML:", e);
+            } finally {
+                if (xml != null) {
+                    xml.close(); // Ensure the parser is closed
                 }
             }
         });
@@ -244,6 +237,7 @@ public class HomePageFragment extends DashboardFragment
         mHeadtipNotice = findPreference("prefs_key_headtip_notice");
         mHeadtipBirthday = findPreference("prefs_key_headtip_hyperceiler_birthday");
         mHeadtipHyperCeiler = findPreference("prefs_key_headtip_hyperceiler");
+        mHeadtipTip = findPreference("prefs_key_headtip_tip");
 
         if (isHyperOSVersion(1f)) {
             mSecurityCenter.setTitle(R.string.security_center_hyperos);
@@ -282,7 +276,22 @@ public class HomePageFragment extends DashboardFragment
         isSignPass();
         isFullSupportSysVer();
         isOfficialRom();
+        // Tip
+        isSupportAutoSafeMode();
 
+    }
+
+    private void processSwitchPreference(String key) {
+        if (key != null) {
+            String checkKey = key.replace("_state", "");
+            boolean state = getSharedPreferences().getBoolean(key, true);
+            if (!state) {
+                PreferenceHeader preferenceHeader = findPreference(checkKey);
+                if (preferenceHeader != null && preferenceHeader.isVisible()) {
+                    preferenceHeader.setVisible(false);
+                }
+            }
+        }
     }
 
     private void setPreference() {
@@ -290,18 +299,10 @@ public class HomePageFragment extends DashboardFragment
         try (XmlResourceParser xml = resources.getXml(R.xml.prefs_main)) {
             int event = xml.getEventType();
             while (event != XmlPullParser.END_DOCUMENT) {
-                if (event == XmlPullParser.START_TAG && xml.getName().equals("com.sevtinge.hyperceiler.prefs.PreferenceHeader")) {
+                if (event == XmlPullParser.START_TAG && isPreferenceHeaderTag(xml)) {
                     String key = xml.getAttributeValue(ANDROID_NS, "key");
                     String summary = xml.getAttributeValue(ANDROID_NS, "summary");
-                    if (key != null && summary != null) {
-                        Drawable icon = getPackageIcon(summary); // 替换为获取图标的方法
-                        String name = getPackageName(summary);
-                        PreferenceHeader preferenceHeader = findPreference(key);
-                        if (preferenceHeader != null) {
-                            preferenceHeader.setIcon(icon);
-                            if (!summary.equals("android")) preferenceHeader.setTitle(name);
-                        }
-                    }
+                    processPreferenceHeader(key, summary, xml);
                 }
                 event = xml.next();
             }
@@ -310,6 +311,23 @@ public class HomePageFragment extends DashboardFragment
         }
     }
 
+    private boolean isPreferenceHeaderTag(XmlResourceParser xml) {
+        return "com.sevtinge.hyperceiler.prefs.PreferenceHeader".equals(xml.getName());
+    }
+
+    private void processPreferenceHeader(String key, String summary, XmlResourceParser xml) {
+        if (key != null && summary != null) {
+            PreferenceHeader preferenceHeader = findPreference(key);
+            if (preferenceHeader != null) {
+                Drawable icon = getPackageIcon(summary);
+                String name = getPackageName(summary);
+                preferenceHeader.setIcon(icon);
+                if (!summary.equals("android")) {
+                    preferenceHeader.setTitle(name);
+                }
+            }
+        }
+    }
 
     private Drawable getPackageIcon(String packageName) {
         try {
@@ -372,21 +390,24 @@ public class HomePageFragment extends DashboardFragment
     }
 
     public boolean getIsOfficialRom() {
-        return (
-                !getBaseOs().startsWith("V") &&
-                        !getBaseOs().startsWith("Xiaomi") &&
-                        !getBaseOs().startsWith("Redmi") &&
-                        !getBaseOs().startsWith("POCO") &&
-                        !getBaseOs().equals("null")
-        ) ||
-                !getRomAuthor().isEmpty() ||
-                Objects.equals(SystemSDKKt.getHost(), "xiaomi.eu") ||
-                (
-                        !SystemSDKKt.getHost().startsWith("pangu-build-component-system") &&
-                                !SystemSDKKt.getHost().startsWith("builder-system") &&
-                                !SystemSDKKt.getHost().startsWith("non-pangu-pod") &&
-                                !Objects.equals(SystemSDKKt.getHost(), "xiaomi.com")
-                );
+        String baseOs = getBaseOs();
+        String romAuthor = getRomAuthor();
+        String host = SystemSDKKt.getHost();
+
+        boolean isNotCustomBaseOs = !baseOs.startsWith("V") &&
+                !baseOs.startsWith("Xiaomi") &&
+                !baseOs.startsWith("Redmi") &&
+                !baseOs.startsWith("POCO") &&
+                !"null".equals(baseOs);
+
+        boolean hasRomAuthor = !romAuthor.isEmpty();
+
+        boolean isNotCustomHost = !host.startsWith("pangu-build-component-system") &&
+                !host.startsWith("builder-system") &&
+                !host.startsWith("non-pangu-pod") &&
+                !host.equals("xiaomi.com");
+
+        return isNotCustomBaseOs || hasRomAuthor || Objects.equals(host, "xiaomi.eu") || isNotCustomHost;
     }
 
 
@@ -395,6 +416,13 @@ public class HomePageFragment extends DashboardFragment
         mHeadtipWarn.setTitle(R.string.headtip_warn_sign_verification_failed);
         mHeadtipWarn.setVisible(!SignUtils.isSignCheckPass(requireContext()));
         mWarnTipVisible = true;
+    }
+
+    public void isSupportAutoSafeMode() {
+        if (mTipTipVisible) return;
+        mHeadtipTip.setTitle(R.string.headtip_tip_auto_safe_mode);
+        mHeadtipTip.setVisible(notInSelectedScope.contains("android"));
+        mTipTipVisible = true;
     }
 
     @Override
